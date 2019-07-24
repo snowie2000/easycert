@@ -227,7 +227,7 @@ func main() {
 	var cfg string
 	flag.StringVar(&cfg, "c", "config.json", "Configure file")
 	flag.Parse()
-	if path.IsAbs(cfg) {
+	if !path.IsAbs(cfg) {
 		cfg = path.Join(ROOTDIR, cfg)
 	}
 	b, err := ioutil.ReadFile(cfg)
